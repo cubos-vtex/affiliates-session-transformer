@@ -1,5 +1,5 @@
 {
-  "affiliates-session-tranformer": {
+  "affiliates-session-transformer": {
     "input": {
       "checkout": ["orderFormId"],
       "profile": ["email"]
