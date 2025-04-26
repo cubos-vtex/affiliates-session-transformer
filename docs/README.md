@@ -16,7 +16,9 @@ Adds affiliate custom data to orderFrom when logging in.
 
 To use the **Affiliates Session Transformer** in your store, install the app using the following command in the VTEX terminal:
 
-`vtex install ssesandbox04.affiliates-session-transformer@0.x`
+```shell
+vtex install ssesandbox04.affiliates-session-transformer@0.x
+````
 
 <!-- DOCS-IGNORE:start -->
 
