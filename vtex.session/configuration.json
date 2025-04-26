@@ -1,0 +1,11 @@
+{
+  "affiliates-session-tranformer": {
+    "input": {
+      "checkout": ["orderFormId"],
+      "profile": ["email"]
+    },
+    "output": {
+      "public": ["affiliateId", "affiliateEmail"]
+    }
+  }
+}
