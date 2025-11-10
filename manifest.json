@@ -30,6 +30,9 @@
       "name": "colossus-write-logs"
     },
     {
+      "name": "SaveOrderFormConfiguration"
+    },
+    {
       "name": "outbound-access",
       "attrs": {
         "host": "api.vtex.com",

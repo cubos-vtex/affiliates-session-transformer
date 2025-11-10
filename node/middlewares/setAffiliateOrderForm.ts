@@ -58,6 +58,33 @@ export async function setAffiliateOrderForm(ctx: Context) {
     }
 
     if (affiliate) {
+      const currentOrderFormConfiguration = await checkout.getOrderFormConfiguration()
+      const hasAffiliateApp = currentOrderFormConfiguration.apps.some(
+        (app) => app.id === AFFILIATES_APP_ID
+      )
+
+      if (!hasAffiliateApp) {
+        const filteredCurrentApps = currentOrderFormConfiguration.apps.filter(
+          (app) => app.id !== AFFILIATES_APP_ID
+        )
+
+        const updatedOrderFormConfiguration = {
+          ...currentOrderFormConfiguration,
+          apps: [
+            ...filteredCurrentApps,
+            {
+              id: AFFILIATES_APP_ID,
+              fields: [AFFILIATES_FIELD_NAME],
+              major: 1,
+            },
+          ],
+        }
+
+        await checkout.updateOrderFormConfiguration(
+          updatedOrderFormConfiguration
+        )
+      }
+
       await checkout.setCustomData({ ...commonArgs, value: affiliate.id })
 
       response.public.affiliateId.value = affiliate.id
